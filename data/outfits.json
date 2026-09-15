@@ -14,8 +14,12 @@
       "name": "A · 約會",
       "occasion": "約會、正式一點的吃飯",
       "season": "全年",
-      "items": ["shirt-blue", "p-black", "sh-vans"],
-      "photo": "photos/outfits/a-date.jpg",
+      "items": [
+        "shirt-blue",
+        "p-black",
+        "sh-vans"
+      ],
+      "photo": "",
       "tips": [
         "襯衫扣起來，袖口往上捲一折",
         "褲腳反摺一折，露出鞋口",
@@ -28,7 +32,11 @@
       "name": "B · 朋友吃飯",
       "occasion": "朋友吃飯、一般出門",
       "season": "全年",
-      "items": ["t-navy", "p-khaki", "sh-vans"],
+      "items": [
+        "t-navy",
+        "p-khaki",
+        "sh-vans"
+      ],
       "photo": "",
       "tips": [
         "深藍配卡其，萬年不敗",
@@ -41,7 +49,11 @@
       "name": "C · 逛街",
       "occasion": "逛街、休閒",
       "season": "全年",
-      "items": ["t-beige", "p-olive", "sh-ot-olive"],
+      "items": [
+        "t-beige",
+        "p-olive",
+        "sh-ot-olive"
+      ],
       "photo": "",
       "tips": [
         "軍綠褲配軍綠高筒是同色系，不會錯"

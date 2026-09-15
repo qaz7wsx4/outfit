@@ -11,7 +11,13 @@
     "bought": "",
     "use": "日常",
     "note": "小 logo，日常最好搭的一件。",
-    "photo": "photos/items/t-navy.jpg"
+    "photo": "photos/items/t-navy.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#33405e",
+      "graphic": "logo",
+      "accent": "#f4f2ee"
+    }
   },
   {
     "id": "t-beige",
@@ -25,7 +31,13 @@
     "bought": "",
     "use": "日常",
     "note": "小 logo。看起來偏短偏小，之後買 T 尺寸要再確認。",
-    "photo": "photos/items/t-beige.jpg"
+    "photo": "photos/items/t-beige.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#d8ccb2",
+      "graphic": "logo",
+      "accent": "#8a7f66"
+    }
   },
   {
     "id": "shirt-blue",
@@ -39,7 +51,11 @@
     "bought": "",
     "use": "約會",
     "note": "目前唯一有領子的衣服。穿前要燙，袖口往上捲一折。肩線合身，白襯衫買同尺寸。",
-    "photo": "photos/items/shirt-blue.jpg"
+    "photo": "photos/items/shirt-blue.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#4b5cab"
+    }
   },
   {
     "id": "t-grey-fjall",
@@ -53,7 +69,13 @@
     "bought": "",
     "use": "逛街",
     "note": "圖案偏戶外，逛街可穿，約會不要。不要跟黃鞋一起穿。",
-    "photo": "photos/items/t-grey-fjall.jpg"
+    "photo": "photos/items/t-grey-fjall.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#5b5b60",
+      "graphic": "circle-mountain",
+      "accent": "#d97a3a"
+    }
   },
   {
     "id": "t-black-smartwool",
@@ -67,7 +89,12 @@
     "bought": "",
     "use": "運動",
     "note": "羊毛排汗，運動和山上為主；全黑穿搭時可當上衣。",
-    "photo": "photos/items/t-black-smartwool.jpg"
+    "photo": "photos/items/t-black-smartwool.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#1e1e21",
+      "graphic": "mountain"
+    }
   },
   {
     "id": "p-black",
@@ -81,7 +108,12 @@
     "bought": "",
     "use": "約會",
     "note": "約會第一順位。褲腳長約 3 cm：反摺一折，或拿去改短（約 150 元）。",
-    "photo": "photos/items/p-black.jpg"
+    "photo": "photos/items/p-black.svg",
+    "shape": "pants",
+    "colors": {
+      "main": "#1e1e21",
+      "fit": "slim"
+    }
   },
   {
     "id": "p-khaki",
@@ -95,7 +127,12 @@
     "bought": "",
     "use": "日常",
     "note": "約會第二順位。配深藍 T 是經典組合。",
-    "photo": "photos/items/p-khaki.jpg"
+    "photo": "photos/items/p-khaki.svg",
+    "shape": "pants",
+    "colors": {
+      "main": "#c8b58c",
+      "fit": "slim"
+    }
   },
   {
     "id": "p-grey",
@@ -109,7 +146,12 @@
     "bought": "",
     "use": "日常",
     "note": "",
-    "photo": "photos/items/p-grey.jpg"
+    "photo": "photos/items/p-grey.svg",
+    "shape": "pants",
+    "colors": {
+      "main": "#4c4f56",
+      "fit": "slim"
+    }
   },
   {
     "id": "p-olive",
@@ -123,7 +165,13 @@
     "bought": "",
     "use": "逛街",
     "note": "逛街、朋友吃飯。配軍綠高筒鞋是同色系。",
-    "photo": "photos/items/p-olive.jpg"
+    "photo": "photos/items/p-olive.svg",
+    "shape": "pants",
+    "colors": {
+      "main": "#6b7150",
+      "fit": "jogger",
+      "belt": "#3f4330"
+    }
   },
   {
     "id": "p-denim",
@@ -137,7 +185,12 @@
     "bought": "",
     "use": "逛街",
     "note": "直筒，逛街、朋友吃飯都行；鬆緊腰偏休閒，約會先用黑褲。",
-    "photo": "photos/items/p-denim.jpg"
+    "photo": "photos/items/p-denim.svg",
+    "shape": "pants",
+    "colors": {
+      "main": "#4f6b95",
+      "fit": "straight"
+    }
   },
   {
     "id": "s-olive",
@@ -151,7 +204,13 @@
     "bought": "",
     "use": "逛街",
     "note": "天氣熱時逛街。",
-    "photo": "photos/items/s-olive.jpg"
+    "photo": "photos/items/s-olive.svg",
+    "shape": "shorts",
+    "colors": {
+      "main": "#6b7150",
+      "cargo": true,
+      "belt": "#1e1e21"
+    }
   },
   {
     "id": "sh-vans",
@@ -165,7 +224,14 @@
     "bought": "",
     "use": "日常",
     "note": "日常主力，三套公式都能配。白鞋底和白鞋帶要保持乾淨。",
-    "photo": "photos/items/sh-vans.jpg"
+    "photo": "photos/items/sh-vans.svg",
+    "shape": "sneaker",
+    "colors": {
+      "main": "#1e1e21",
+      "sole": "#f6f5f1",
+      "lace": "#f6f5f1",
+      "foxing": "#f6f5f1"
+    }
   },
   {
     "id": "sh-ot-yellow",
@@ -179,7 +245,14 @@
     "bought": "",
     "use": "日常",
     "note": "亮點鞋。穿它時褲子選黑或深藍、上衣素面，讓黃色是全身唯一亮點；手錶換黑錶帶。",
-    "photo": "photos/items/sh-ot-yellow.jpg"
+    "photo": "photos/items/sh-ot-yellow.svg",
+    "shape": "sneaker",
+    "colors": {
+      "main": "#f2c230",
+      "sole": "#f6f5f1",
+      "lace": "#f2c230",
+      "stripes": "#1e1e21"
+    }
   },
   {
     "id": "sh-ot-olive",
@@ -193,7 +266,13 @@
     "bought": "",
     "use": "日常",
     "note": "秋天主力。配軍綠褲或黑褲。",
-    "photo": "photos/items/sh-ot-olive.jpg"
+    "photo": "photos/items/sh-ot-olive.svg",
+    "shape": "hightop",
+    "colors": {
+      "main": "#6b7150",
+      "sole": "#1e1e21",
+      "lace": "#8f9470"
+    }
   },
   {
     "id": "sh-altra",
@@ -207,7 +286,13 @@
     "bought": "",
     "use": "運動",
     "note": "運動專用，日常不穿。",
-    "photo": "photos/items/sh-altra.jpg"
+    "photo": "photos/items/sh-altra.svg",
+    "shape": "runner",
+    "colors": {
+      "main": "#1e1e21",
+      "accent": "#f2c230",
+      "sole": "#e9836b"
+    }
   },
   {
     "id": "sh-asics",
@@ -221,7 +306,13 @@
     "bought": "",
     "use": "運動",
     "note": "運動專用，日常不穿。",
-    "photo": "photos/items/sh-asics.jpg"
+    "photo": "photos/items/sh-asics.svg",
+    "shape": "runner",
+    "colors": {
+      "main": "#e8742c",
+      "accent": "#f2c230",
+      "sole": "#f6f5f1"
+    }
   },
   {
     "id": "sh-keen",
@@ -235,7 +326,12 @@
     "bought": "",
     "use": "山上",
     "note": "山上、水邊。",
-    "photo": "photos/items/sh-keen.jpg"
+    "photo": "photos/items/sh-keen.svg",
+    "shape": "sandal",
+    "colors": {
+      "main": "#2a2a2e",
+      "sole": "#3b3b3f"
+    }
   },
   {
     "id": "sh-crocs",
@@ -249,7 +345,12 @@
     "bought": "",
     "use": "家裡",
     "note": "",
-    "photo": "photos/items/sh-crocs.jpg"
+    "photo": "photos/items/sh-crocs.svg",
+    "shape": "slide",
+    "colors": {
+      "main": "#1e1e21",
+      "sole": "#f6f5f1"
+    }
   },
   {
     "id": "sh-oofos",
@@ -263,7 +364,12 @@
     "bought": "",
     "use": "家裡",
     "note": "跑完步穿。",
-    "photo": "photos/items/sh-oofos.jpg"
+    "photo": "photos/items/sh-oofos.svg",
+    "shape": "flipflop",
+    "colors": {
+      "main": "#6fd0c8",
+      "sole": "#6fd0c8"
+    }
   },
   {
     "id": "w-garmin",
@@ -277,6 +383,12 @@
     "bought": "",
     "use": "日常",
     "note": "橘色錶帶跟中性色衣櫃是合的。之後加黑色快拆錶帶（約會、穿黃鞋時用），鈦合金錶帶等襯衫補齊再考慮。",
-    "photo": ""
+    "photo": "photos/items/w-garmin.svg",
+    "shape": "watch",
+    "colors": {
+      "main": "#e8742c",
+      "case": "#2a2a2e",
+      "accent": "#6fbf73"
+    }
   }
 ]
