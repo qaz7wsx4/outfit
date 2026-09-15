@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="2">
+<html lang="zh-Hant" data-v="3">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -78,6 +78,9 @@
   .outfit .hero { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; background: #ddd; }
   .outfit .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--line); }
   .outfit .strip img, .outfit .strip .ph { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #eee; }
+  .outfit .strip .pend { aspect-ratio: 1; background: #f7f5f0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--ink-3); font-size: 12px; text-align: center; padding: 8px; outline: 2px dashed var(--line); outline-offset: -8px; }
+  .outfit .strip .pend b { font-size: 13px; color: var(--ink-2); }
+  .formula .pending { color: var(--ink-3); border-bottom: 1.5px dashed var(--line); }
   .outfit .body { padding: 14px 16px 16px; }
   .outfit .head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
   .outfit .name { font-size: 18px; font-weight: 700; }
@@ -170,6 +173,8 @@
   </section>
 
   <section id="tab-rules" hidden>
+    <h2>風格主軸</h2>
+    <div class="rules" id="style"></div>
     <h2>穿搭規則</h2>
     <div class="rules"><ol id="rules"></ol></div>
   </section>
@@ -223,10 +228,12 @@
   }
   $('#outfits').innerHTML = outfitsDoc.outfits.map(o => {
     const its = o.items.map(id => byId[id]).filter(Boolean);
+    const pend = o.pending || [];
     const visual = o.photo
       ? `<img class="hero" src="${esc(o.photo)}" alt="${esc(o.name)}">`
-      : `<div class="strip">${its.map(photoOrPh).join('')}</div>`;
-    const formula = its.map(it => `<a href="#" data-item="${it.id}">${esc(it.name)}</a>`).join('<span class="plus">＋</span>');
+      : `<div class="strip" style="grid-template-columns:repeat(${its.length + pend.length},1fr)">${pend.map(n => `<div class="pend"><b>${esc(n)}</b>待買</div>`).join('')}${its.map(photoOrPh).join('')}</div>`;
+    const formula = [...pend.map(n => `<span class="pending">${esc(n)}（待買）</span>`),
+                     ...its.map(it => `<a href="#" data-item="${it.id}">${esc(it.name)}</a>`)].join('<span class="plus">＋</span>');
     return `<article class="outfit">
       ${visual}
       <div class="body">
@@ -340,6 +347,8 @@
 
   /* ---------- rules ---------- */
   $('#rules').innerHTML = outfitsDoc.rules.map(r => `<li>${esc(r)}</li>`).join('');
+  const st = outfitsDoc.style;
+  if (st) $('#style').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(st.name)}</div><ol>${st.points.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`;
 
   /* ---------- stamp + restore ---------- */
   $('#stamp').textContent = `${items.length} 件 · ${outfitsDoc.outfits.length} 套`;
