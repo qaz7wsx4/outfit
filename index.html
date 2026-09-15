@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1c1c1e">
+<title>穿搭本</title>
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --card: #ffffff;
+    --ink: #1c1c1e;
+    --ink-2: #5c5c60;
+    --ink-3: #9a9a9f;
+    --line: #e4e1db;
+    --accent: #2f3e5c;      /* 深藍 */
+    --accent-soft: #e6eaf2;
+    --khaki: #c9b58a;
+    --olive: #6b7150;
+    --radius: 14px;
+    --nav-h: 60px;
+    font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Helvetica Neue", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom)); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+
+  header {
+    padding: 18px 18px 8px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  header h1 { font-size: 22px; margin: 0; letter-spacing: .02em; }
+  header .sub { font-size: 12px; color: var(--ink-3); }
+
+  main { padding: 6px 14px 20px; max-width: 900px; margin: 0 auto; }
+  section[hidden] { display: none; }
+  h2 { font-size: 13px; color: var(--ink-3); font-weight: 600; letter-spacing: .08em; margin: 18px 4px 10px; text-transform: uppercase; }
+
+  /* ---- bottom nav ---- */
+  nav {
+    position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--nav-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    background: rgba(255,255,255,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  nav button {
+    background: none; border: 0; font: inherit; font-size: 12px; color: var(--ink-3);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    cursor: pointer; padding: 0;
+  }
+  nav button .ic { font-size: 20px; line-height: 1; }
+  nav button.on { color: var(--accent); font-weight: 600; }
+
+  /* ---- chips ---- */
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--card); font-size: 13px; color: var(--ink-2); cursor: pointer; white-space: nowrap;
+  }
+  .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .tag { display: inline-block; font-size: 11px; padding: 3px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .tag.日常 { background: #e8efe4; color: #3d5a2f; }
+  .tag.約會 { background: #f4e6ea; color: #8a2f47; }
+  .tag.逛街 { background: #f3ecdc; color: #7a5a1c; }
+  .tag.運動 { background: #e3e3e6; color: #444; }
+  .tag.山上 { background: #e3e3e6; color: #444; }
+  .tag.家裡 { background: #e3e3e6; color: #444; }
+
+  /* ---- outfit cards ---- */
+  .outfit {
+    background: var(--card); border-radius: var(--radius); overflow: hidden; margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+  }
+  .outfit .hero { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; background: #ddd; }
+  .outfit .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; background: var(--line); }
+  .outfit .strip img, .outfit .strip .ph { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #eee; }
+  .outfit .body { padding: 14px 16px 16px; }
+  .outfit .head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .outfit .name { font-size: 18px; font-weight: 700; }
+  .outfit .meta { font-size: 12px; color: var(--ink-3); }
+  .formula { font-size: 16px; line-height: 1.5; margin: 6px 0 10px; }
+  .formula a { text-decoration: none; border-bottom: 1.5px solid var(--khaki); padding-bottom: 1px; }
+  .formula .plus { color: var(--ink-3); margin: 0 6px; }
+  .tips { margin: 0; padding: 0 0 0 18px; color: var(--ink-2); font-size: 14px; line-height: 1.7; }
+  .alt { margin-top: 10px; padding: 10px 12px; background: var(--bg); border-radius: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  .alt b { color: var(--ink); }
+
+  /* ---- wardrobe ---- */
+  .toolbar { display: flex; align-items: center; gap: 8px; }
+  .toolbar .chips { flex: 1; }
+  .toggle { flex: 0 0 auto; margin-bottom: 8px; padding: 7px 12px; font-size: 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink-2); cursor: pointer; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  .item {
+    background: var(--card); border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04); scroll-margin-top: 20px;
+  }
+  .item.hl { outline: 2px solid var(--accent); }
+  .item img, .item .ph { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #eee; }
+  .item .ph { display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--ink-3); }
+  .item .b { padding: 10px 12px 12px; }
+  .item .n { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .item .br { font-size: 12px; color: var(--ink-3); margin: 3px 0 6px; }
+  .item .d { display: none; font-size: 13px; color: var(--ink-2); line-height: 1.6; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .item.open .d { display: block; }
+  .item .d dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+  .item .d dt { color: var(--ink-3); }
+  .item .d dd { margin: 0; }
+
+  .tablewrap { overflow-x: auto; background: var(--card); border-radius: var(--radius); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 720px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 11px; color: var(--ink-3); font-weight: 600; letter-spacing: .05em; white-space: nowrap; }
+  td.note { color: var(--ink-2); min-width: 220px; }
+  td.dim { color: var(--ink-3); }
+
+  /* ---- shopping ---- */
+  .month { background: var(--card); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 14px; }
+  .month .mh { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .month .mh b { font-size: 16px; }
+  .month .mh span { font-size: 12px; color: var(--ink-3); }
+  .buy { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .buy .n { font-weight: 600; font-size: 15px; }
+  .buy .p { font-size: 13px; color: var(--ink-2); white-space: nowrap; text-align: right; }
+  .buy .w { font-size: 12px; color: var(--ink-3); grid-column: 1 / -1; }
+  .buy .y { font-size: 13px; color: var(--ink-2); line-height: 1.6; grid-column: 1 / -1; margin-top: 4px; }
+  .st { font-size: 11px; padding: 2px 7px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); margin-left: 6px; font-weight: 600; vertical-align: 1px; }
+  .st.已買 { background: #e8efe4; color: #3d5a2f; }
+  .st.可選, .st.待定 { background: #eee; color: var(--ink-3); }
+  .buy.done .n { text-decoration: line-through; color: var(--ink-3); }
+
+  /* ---- rules ---- */
+  .rules { background: var(--card); border-radius: var(--radius); padding: 6px 16px; }
+  .rules ol { margin: 0; padding: 0 0 0 20px; }
+  .rules li { padding: 10px 0; border-bottom: 1px solid var(--line); line-height: 1.6; font-size: 15px; }
+  .rules li:last-child { border-bottom: 0; }
+
+  footer { text-align: center; font-size: 11px; color: var(--ink-3); padding: 24px 0 8px; line-height: 1.8; }
+  footer code { background: var(--line); padding: 1px 5px; border-radius: 4px; }
+  .empty { color: var(--ink-3); font-size: 14px; padding: 20px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>穿搭本</h1>
+  <div class="sub" id="stamp"></div>
+</header>
+
+<main>
+  <section id="tab-outfits">
+    <div id="outfits"></div>
+  </section>
+
+  <section id="tab-wardrobe" hidden>
+    <div class="toolbar">
+      <div class="chips" id="cat-chips"></div>
+      <button class="toggle" id="view-toggle">表格</button>
+    </div>
+    <div id="wardrobe"></div>
+  </section>
+
+  <section id="tab-shopping" hidden>
+    <div id="shopping"></div>
+  </section>
+
+  <section id="tab-rules" hidden>
+    <h2>穿搭規則</h2>
+    <div class="rules"><ol id="rules"></ol></div>
+  </section>
+
+  <footer>
+    資料在 <code>data/items.json</code>、<code>data/outfits.json</code>、<code>data/shopping.json</code><br>
+    新買衣服：拍照 → 加一筆 → push
+  </footer>
+</main>
+
+<nav>
+  <button data-tab="outfits" class="on"><span class="ic">👕</span>穿搭</button>
+  <button data-tab="wardrobe"><span class="ic">🗄️</span>衣櫃</button>
+  <button data-tab="shopping"><span class="ic">🛒</span>待買</button>
+  <button data-tab="rules"><span class="ic">📌</span>規則</button>
+</nav>
+
+<script>
+(async function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const CAT_ICON = { '上衣': '👕', '長褲': '👖', '短褲': '🩳', '鞋': '👟', '配件': '⌚' };
+
+  let items = [], outfitsDoc = { rules: [], outfits: [] }, shopping = { plans: [] };
+  try {
+    [items, outfitsDoc, shopping] = await Promise.all([
+      fetch('data/items.json').then(r => r.json()),
+      fetch('data/outfits.json').then(r => r.json()),
+      fetch('data/shopping.json').then(r => r.json()),
+    ]);
+  } catch (e) {
+    $('#outfits').innerHTML = '<div class="empty">讀不到資料。這個網頁要放在 GitHub Pages 上開，直接點開 index.html 檔案不會動。</div>';
+    return;
+  }
+  const byId = Object.fromEntries(items.map(i => [i.id, i]));
+
+  /* ---------- tabs ---------- */
+  function showTab(name) {
+    document.querySelectorAll('main > section').forEach(s => s.hidden = s.id !== 'tab-' + name);
+    document.querySelectorAll('nav button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+    try { localStorage.setItem('tab', name); } catch (_) {}
+    window.scrollTo(0, 0);
+  }
+  document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+
+  /* ---------- outfits ---------- */
+  function photoOrPh(it) {
+    return it.photo ? `<img src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy">`
+                    : `<div class="ph">${CAT_ICON[it.category] || '·'}</div>`;
+  }
+  $('#outfits').innerHTML = outfitsDoc.outfits.map(o => {
+    const its = o.items.map(id => byId[id]).filter(Boolean);
+    const visual = o.photo
+      ? `<img class="hero" src="${esc(o.photo)}" alt="${esc(o.name)}">`
+      : `<div class="strip">${its.map(photoOrPh).join('')}</div>`;
+    const formula = its.map(it => `<a href="#" data-item="${it.id}">${esc(it.name)}</a>`).join('<span class="plus">＋</span>');
+    return `<article class="outfit">
+      ${visual}
+      <div class="body">
+        <div class="head"><div class="name">${esc(o.name)}</div><div class="meta">${esc(o.season)}</div></div>
+        <div><span class="tag">${esc(o.occasion)}</span></div>
+        <div class="formula">${formula}</div>
+        ${o.tips?.length ? `<ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+        ${o.alt ? `<div class="alt"><b>變化：</b>${esc(o.alt)}</div>` : ''}
+      </div>
+    </article>`;
+  }).join('') || '<div class="empty">還沒有穿搭</div>';
+
+  $('#outfits').addEventListener('click', e => {
+    const a = e.target.closest('a[data-item]');
+    if (!a) return;
+    e.preventDefault();
+    jumpToItem(a.dataset.item);
+  });
+
+  /* ---------- wardrobe ---------- */
+  const cats = ['全部', ...[...new Set(items.map(i => i.category))]];
+  let cat = '全部', view = 'cards';
+  try { view = localStorage.getItem('view') || 'cards'; } catch (_) {}
+
+  $('#cat-chips').innerHTML = cats.map(c => `<button class="chip${c === cat ? ' on' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  $('#cat-chips').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    cat = b.dataset.cat;
+    document.querySelectorAll('#cat-chips .chip').forEach(x => x.classList.toggle('on', x === b));
+    renderWardrobe();
+  });
+  $('#view-toggle').addEventListener('click', () => {
+    view = view === 'cards' ? 'table' : 'cards';
+    try { localStorage.setItem('view', view); } catch (_) {}
+    renderWardrobe();
+  });
+
+  const fmtPrice = p => (p == null || p === '') ? '' : `$${Number(p).toLocaleString()}`;
+  const dash = v => v ? esc(v) : '<span style="color:var(--ink-3)">—</span>';
+
+  function renderWardrobe() {
+    $('#view-toggle').textContent = view === 'cards' ? '表格' : '卡片';
+    const list = items.filter(i => cat === '全部' || i.category === cat);
+    if (view === 'table') {
+      $('#wardrobe').innerHTML = `<div class="tablewrap"><table>
+        <thead><tr><th>分類</th><th>名稱</th><th>品牌</th><th>型號</th><th>顏色</th><th>尺寸</th><th>價格</th><th>購入</th><th>用途</th><th>備註</th></tr></thead>
+        <tbody>${list.map(i => `<tr id="row-${i.id}">
+          <td class="dim">${esc(i.category)}</td><td><b>${esc(i.name)}</b></td><td>${dash(i.brand)}</td><td>${dash(i.model)}</td>
+          <td>${dash(i.color)}</td><td>${dash(i.size)}</td><td>${dash(fmtPrice(i.price))}</td><td>${dash(i.bought)}</td>
+          <td><span class="tag ${esc(i.use)}">${esc(i.use)}</span></td><td class="note">${esc(i.note)}</td>
+        </tr>`).join('')}</tbody></table></div>`;
+      return;
+    }
+    $('#wardrobe').innerHTML = `<div class="grid">${list.map(i => `
+      <div class="item" id="item-${i.id}">
+        ${photoOrPh(i)}
+        <div class="b">
+          <div class="n">${esc(i.name)}</div>
+          <div class="br">${esc([i.brand, i.model].filter(Boolean).join(' · ') || '品牌未填')}</div>
+          <span class="tag ${esc(i.use)}">${esc(i.use)}</span>
+          <div class="d">
+            <dl>
+              <dt>顏色</dt><dd>${dash(i.color)}</dd>
+              <dt>尺寸</dt><dd>${dash(i.size)}</dd>
+              <dt>價格</dt><dd>${dash(fmtPrice(i.price))}</dd>
+              <dt>購入</dt><dd>${dash(i.bought)}</dd>
+            </dl>
+            ${i.note ? `<div style="margin-top:6px">${esc(i.note)}</div>` : ''}
+          </div>
+        </div>
+      </div>`).join('')}</div>`;
+  }
+  $('#wardrobe').addEventListener('click', e => {
+    const card = e.target.closest('.item'); if (card) card.classList.toggle('open');
+  });
+  renderWardrobe();
+
+  function jumpToItem(id) {
+    const it = byId[id]; if (!it) return;
+    cat = '全部';
+    document.querySelectorAll('#cat-chips .chip').forEach(x => x.classList.toggle('on', x.dataset.cat === '全部'));
+    view = 'cards'; renderWardrobe();
+    showTab('wardrobe');
+    const el = $('#item-' + id);
+    if (el) {
+      el.classList.add('open', 'hl');
+      el.scrollIntoView({ block: 'center' });
+      setTimeout(() => el.classList.remove('hl'), 1600);
+    }
+  }
+
+  /* ---------- shopping ---------- */
+  const firstNum = s => { const m = String(s ?? '').match(/\d+/); return m ? Number(m[0]) : 0; };
+  $('#shopping').innerHTML = shopping.plans.map(pl => {
+    const counted = pl.items.filter(x => x.counts);
+    const bought = counted.filter(x => x.status === '已買');
+    const spent = bought.reduce((s, x) => s + firstNum(x.price), 0);
+    const cap = shopping.budget_per_month, n = shopping.max_items_per_month;
+    const meta = /^\d{4}-\d{2}$/.test(pl.month)
+      ? `${bought.length}／${n} 件 · 已花 $${spent.toLocaleString()}／$${cap.toLocaleString()}` : '';
+    return `<div class="month">
+      <div class="mh"><b>${esc(pl.month)}</b><span>${meta}</span></div>
+      ${pl.items.map(x => `<div class="buy${x.status === '已買' ? ' done' : ''}">
+        <div class="n">${esc(x.name)}<span class="st ${esc(x.status)}">${esc(x.status)}</span></div>
+        <div class="p">${x.price ? esc(x.price) + ' 元' : ''}</div>
+        <div class="w">${esc(x.where || '')}${x.counts ? '' : (x.where ? ' · ' : '') + '不算衣服預算'}</div>
+        ${x.why ? `<div class="y">${esc(x.why)}</div>` : ''}
+      </div>`).join('')}
+    </div>`;
+  }).join('') || '<div class="empty">沒有待買清單</div>';
+
+  /* ---------- rules ---------- */
+  $('#rules').innerHTML = outfitsDoc.rules.map(r => `<li>${esc(r)}</li>`).join('');
+
+  /* ---------- stamp + restore ---------- */
+  $('#stamp').textContent = `${items.length} 件 · ${outfitsDoc.outfits.length} 套`;
+  let saved = 'outfits';
+  try { saved = localStorage.getItem('tab') || 'outfits'; } catch (_) {}
+  showTab(saved);
+})();
+</script>
+</body>
+</html>

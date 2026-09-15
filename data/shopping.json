@@ -1,0 +1,77 @@
+{
+  "budget_per_month": 3000,
+  "max_items_per_month": 2,
+  "plans": [
+    {
+      "month": "2026-09",
+      "items": [
+        {
+          "name": "白色長袖牛津襯衫",
+          "where": "Uniqlo",
+          "price": "990～1290",
+          "counts": true,
+          "status": "待買",
+          "why": "敞開套在 T 外面，所有 T-shirt 直接升一級。買跟藍襯衫同尺寸，長袖袖口蓋到手腕骨。"
+        },
+        {
+          "name": "白色素面厚磅 T-shirt",
+          "where": "Uniqlo U 圓領",
+          "price": "590",
+          "counts": true,
+          "status": "待買",
+          "why": "現在沒有任何純素面、白色的 T。套襯衫時最乾淨的底層，也是唯一能單穿約會的 T。"
+        },
+        {
+          "name": "手持掛燙機",
+          "where": "任何電器行",
+          "price": "500～900",
+          "counts": false,
+          "status": "待買",
+          "why": "不算衣服預算。選預熱 30 秒內、水箱 100ml 以上的。"
+        },
+        {
+          "name": "黑色快拆矽膠錶帶",
+          "where": "副廠",
+          "price": "200～500",
+          "counts": false,
+          "status": "可選",
+          "why": "約會、穿黃鞋那天用。買有快拆彈簧棒的。"
+        }
+      ]
+    },
+    {
+      "month": "2026-10",
+      "items": [
+        {
+          "name": "針織衫 或 襯衫式外套",
+          "where": "",
+          "price": "",
+          "counts": true,
+          "status": "待定",
+          "why": "秋天要有 T-shirt 以外的第二層。等外套拍完再決定。"
+        }
+      ]
+    },
+    {
+      "month": "之後",
+      "items": [
+        {
+          "name": "黑褲改短 3 cm",
+          "where": "修改店",
+          "price": "150",
+          "counts": false,
+          "status": "可選",
+          "why": ""
+        },
+        {
+          "name": "鈦合金錶帶",
+          "where": "",
+          "price": "1000 上下",
+          "counts": false,
+          "status": "可選",
+          "why": "要搭襯衫才發揮得出來，等襯衫補齊再說。"
+        }
+      ]
+    }
+  ]
+}
