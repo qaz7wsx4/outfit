@@ -47,8 +47,42 @@
           "where": "Uniqlo / 無印良品",
           "price": "1000～1500",
           "counts": true,
-          "status": "待定",
+          "status": "待買",
           "why": "City Boy 層次的第三層：T → 白襯衫 → 針織。等外套拍完確認沒有能用的再買。"
+        },
+        {
+          "name": "第一件古著：格紋法蘭絨襯衫 或 軍綠軍裝襯衫外套",
+          "where": "中山站巷內／赤峰街古著店",
+          "price": "800～1500",
+          "counts": true,
+          "status": "待買",
+          "why": "古著只換一件，其他維持 Clean Fit。帶藍襯衫的肩寬／胸寬／衣長去比，肩寬可多 1～2 cm。檢查腋下汗漬、鈕扣、霉味。"
+        }
+      ]
+    },
+    {
+      "month": "2026-11",
+      "items": [
+        {
+          "name": "德訓鞋（German Army Trainer）白＋灰麂皮",
+          "where": "Novesta 或其他副廠，不買 Margiela",
+          "price": "2500～4000",
+          "counts": true,
+          "status": "待買",
+          "why": "Clean Fit 標準鞋，也是古著的橋樑。沒 logo，黑褲／卡其／牛仔／軍綠全合。替代：Adidas Samba OG 黑白（較紅、有 logo）。"
+        }
+      ]
+    },
+    {
+      "month": "2026-12",
+      "items": [
+        {
+          "name": "Clarks Desert Boot 沙色麂皮",
+          "where": "Clarks",
+          "price": "4000～5000",
+          "counts": true,
+          "status": "待定",
+          "why": "秋冬的「稍微正式一點但還是我」那雙，Clean Fit 和古著都能穿。"
         }
       ]
     },
