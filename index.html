@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="4">
+<html lang="zh-Hant" data-v="5">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -177,6 +177,8 @@
     <div class="rules" id="style"></div>
     <h2>穿搭規則</h2>
     <div class="rules"><ol id="rules"></ol></div>
+    <h2>髮型</h2>
+    <div class="rules" id="hair"></div>
   </section>
 
   <footer>
@@ -347,6 +349,19 @@
 
   /* ---------- rules ---------- */
   $('#rules').innerHTML = outfitsDoc.rules.map(r => `<li>${esc(r)}</li>`).join('');
+  const g = outfitsDoc.grooming;
+  if (g) {
+    const ol = a => `<ol>${a.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`;
+    const h3 = t => `<div style="font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.06em;margin:14px 0 2px">${t}</div>`;
+    $('#hair').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(g.hair.name)}</div>
+      <div style="font-size:14px;color:var(--ink-2);line-height:1.6">${esc(g.hair.why)}</div>
+      ${h3('給理髮師看這段')}${ol(g.hair.barber)}
+      ${h3('每天 3 分鐘')}${ol(g.hair.daily)}
+      ${h3('約會')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.date)}</div>
+      ${h3('造型品')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.product)}</div>
+      ${h3('週期')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.cycle)}</div>
+      ${h3('鬍子')}<div style="font-size:14px;line-height:1.6;padding:6px 0 12px">${esc(g.beard)}</div>`;
+  }
   const st = outfitsDoc.style;
   if (st) $('#style').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(st.name)}</div><ol>${st.points.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`;
 
