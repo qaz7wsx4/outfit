@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-v="2">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -194,11 +194,12 @@
   const CAT_ICON = { '上衣': '👕', '長褲': '👖', '短褲': '🩳', '鞋': '👟', '配件': '⌚' };
 
   let items = [], outfitsDoc = { rules: [], outfits: [] }, shopping = { plans: [] };
+  const V = document.documentElement.dataset.v || '';
   try {
     [items, outfitsDoc, shopping] = await Promise.all([
-      fetch('data/items.json').then(r => r.json()),
-      fetch('data/outfits.json').then(r => r.json()),
-      fetch('data/shopping.json').then(r => r.json()),
+      fetch('data/items.json?v=' + V, { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/outfits.json?v=' + V, { cache: 'no-cache' }).then(r => r.json()),
+      fetch('data/shopping.json?v=' + V, { cache: 'no-cache' }).then(r => r.json()),
     ]);
   } catch (e) {
     $('#outfits').innerHTML = '<div class="empty">讀不到資料。這個網頁要放在 GitHub Pages 上開，直接點開 index.html 檔案不會動。</div>';
@@ -217,7 +218,7 @@
 
   /* ---------- outfits ---------- */
   function photoOrPh(it) {
-    return it.photo ? `<img src="${esc(it.photo)}" alt="${esc(it.name)}" loading="lazy">`
+    return it.photo ? `<img src="${esc(it.photo)}?v=${V}" alt="${esc(it.name)}" loading="lazy">`
                     : `<div class="ph">${CAT_ICON[it.category] || '·'}</div>`;
   }
   $('#outfits').innerHTML = outfitsDoc.outfits.map(o => {
