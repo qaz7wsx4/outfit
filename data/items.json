@@ -97,6 +97,62 @@
     }
   },
   {
+    "id": "t-white",
+    "category": "上衣",
+    "name": "白色素面 T-shirt",
+    "brand": "Uniqlo",
+    "model": "",
+    "color": "白",
+    "size": "",
+    "price": null,
+    "bought": "2026-09-17",
+    "use": "約會",
+    "note": "所有公式的底層，也是唯一能單穿約會的 T。不能皺。",
+    "photo": "photos/items/t-white.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#f6f5f1"
+    }
+  },
+  {
+    "id": "shirt-white-ls",
+    "category": "上衣",
+    "name": "白色長袖襯衫",
+    "brand": "Uniqlo",
+    "model": "",
+    "color": "白",
+    "size": "",
+    "price": null,
+    "bought": "2026-09-17",
+    "use": "約會",
+    "note": "敞開套在 T 外面是 City Boy 基本型；扣起來配黑褲是約會。出門前一定燙。",
+    "photo": "photos/items/shirt-white-ls.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#f6f5f1",
+      "button": "#d9d5cc"
+    }
+  },
+  {
+    "id": "shirt-white-ss",
+    "category": "上衣",
+    "name": "白色短袖襯衫",
+    "brand": "Uniqlo",
+    "model": "",
+    "color": "白",
+    "size": "",
+    "price": null,
+    "bought": "2026-09-17",
+    "use": "約會",
+    "note": "天熱時的約會襯衫，扣起來、袖口捲一折。十月底前主力。",
+    "photo": "photos/items/shirt-white-ss.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#f6f5f1",
+      "button": "#d9d5cc"
+    }
+  },
+  {
     "id": "p-black",
     "category": "長褲",
     "name": "黑色窄版長褲",

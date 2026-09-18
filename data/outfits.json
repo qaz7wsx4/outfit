@@ -68,11 +68,9 @@
       "occasion": "約會、朋友吃飯",
       "season": "全年",
       "items": [
+        "t-white",
         "p-black",
         "sh-vans"
-      ],
-      "pending": [
-        "白色素面 T"
       ],
       "photo": "",
       "tips": [
@@ -87,12 +85,10 @@
       "occasion": "約會、朋友吃飯、逛街",
       "season": "秋冬",
       "items": [
+        "shirt-white-ls",
         "t-navy",
         "p-khaki",
         "sh-vans"
-      ],
-      "pending": [
-        "白色牛津襯衫"
       ],
       "photo": "",
       "tips": [
@@ -100,6 +96,24 @@
         "襯衫要燙，這套的成敗就在襯衫平不平"
       ],
       "alt": "再冷一點：襯衫外面加針織（十月預算）。褲子換黑褲也行。這套就是 City Boy 的基本型。"
+    },
+    {
+      "id": "f",
+      "name": "F · 短袖白襯衫",
+      "occasion": "約會、朋友吃飯",
+      "season": "夏、初秋",
+      "items": [
+        "shirt-white-ss",
+        "p-black",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "扣起來、袖口捲一折",
+        "褲腳反摺一折",
+        "襯衫要燙"
+      ],
+      "alt": "褲子換卡其 chino 更輕鬆。跟 A 套（藍襯衫）輪流，一週兩次約會也不會重複。"
     }
   ],
   "style": {

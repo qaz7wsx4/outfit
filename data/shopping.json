@@ -10,7 +10,7 @@
           "where": "Uniqlo",
           "price": "990～1290",
           "counts": true,
-          "status": "待買",
+          "status": "已買",
           "why": "敞開套在 T 外面，所有 T-shirt 直接升一級。買跟藍襯衫同尺寸，長袖袖口蓋到手腕骨。"
         },
         {
@@ -18,8 +18,16 @@
           "where": "Uniqlo U 圓領",
           "price": "590",
           "counts": true,
-          "status": "待買",
+          "status": "已買",
           "why": "現在沒有任何純素面、白色的 T。套襯衫時最乾淨的底層，也是唯一能單穿約會的 T。"
+        },
+        {
+          "name": "白色短袖襯衫",
+          "where": "Uniqlo",
+          "price": "",
+          "counts": true,
+          "status": "已買",
+          "why": "九月還熱，短袖襯衫撐到十月底。"
         },
         {
           "name": "手持掛燙機",
