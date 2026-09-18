@@ -199,7 +199,9 @@ def main():
         path = os.path.join(OUT, f"{it['id']}.svg")
         with open(path, "w", encoding="utf-8") as f:
             f.write(SHAPES[shape](it.get("colors", {})))
-        it["photo"] = f"photos/items/{it['id']}.svg"
+        # 已有 Gemini 手繪圖（photos/items-gen/）就不覆蓋 photo 路徑，SVG 只當備援
+        if not os.path.exists(os.path.join(ROOT, "photos", "items-gen", f"{it['id']}.jpg")):
+            it["photo"] = f"photos/items/{it['id']}.svg"
         n += 1
     json.dump(items, open(ITEMS, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"{n} 張插圖已產生")

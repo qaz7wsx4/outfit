@@ -18,3 +18,9 @@
 3. `git add -A && git commit -m "..." && git push`
 
 版型：`tshirt` `shirt` `pants` `shorts` `sneaker` `hightop` `runner` `sandal` `slide` `flipflop` `watch`
+
+## 插圖（Gemini 手繪風）
+
+- 人物穿搭圖 `photos/outfits/<id>.jpg`、單品圖 `photos/items-gen/<id>.jpg`，都是在 Gemini 網頁版同一個對話生成（角色定稿 `photos/ref/character.jpg`）
+- 新單品：叫 Gemini「Same flat-lay illustration style… 2x2 grid…」一次畫四件再裁；新穿搭：「Same character as the previous images… Only the clothes change. Outfit: …」
+- `tools/make_illustrations.py` 的 SVG 只是備援，有手繪圖時不會覆蓋
