@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="15">
+<html lang="zh-Hant" data-v="16">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -82,6 +82,15 @@
   .outfit .strip .pend b { font-size: 13px; color: var(--ink-2); }
   .formula .pending { color: var(--ink-3); border-bottom: 1.5px dashed var(--line); }
   .outfit .body { padding: 14px 16px 16px; }
+  .scene-h { font-size: 15px; font-weight: 700; margin: 22px 4px 10px; display: flex; align-items: baseline; gap: 8px; }
+  .scene-h small { font-size: 12px; color: var(--ink-3); font-weight: 500; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+  .tag.style { background: #ecebe6; color: #4a4a4f; }
+  .tag.temp { background: #fff3e0; color: #9a5b00; }
+  .tag.temp.涼 { background: #e7f0f7; color: #2c5878; }
+  .tag.temp.冷 { background: #e9e7f2; color: #4b3f8a; }
+  .formal { font-size: 12px; color: var(--ink-3); letter-spacing: 1px; }
+  .outfit.hidden { display: none; }
   .outfit .head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
   .outfit .name { font-size: 18px; font-weight: 700; }
   .outfit .meta { font-size: 12px; color: var(--ink-3); }
@@ -157,6 +166,8 @@
 
 <main>
   <section id="tab-outfits">
+    <div class="chips" id="temp-chips"></div>
+    <div class="chips" id="style-chips"></div>
     <div id="outfits"></div>
   </section>
 
@@ -228,25 +239,59 @@
     return it.photo ? `<img src="${esc(it.photo)}?v=${V}" alt="${esc(it.name)}" loading="lazy">`
                     : `<div class="ph">${CAT_ICON[it.category] || '·'}</div>`;
   }
-  $('#outfits').innerHTML = outfitsDoc.outfits.map(o => {
+  const SCENES = outfitsDoc.scenes || [...new Set(outfitsDoc.outfits.flatMap(o => o.scenes || []))];
+  const TEMPS = outfitsDoc.temps || ['熱', '涼', '冷'];
+  const STYLES = [...new Set(outfitsDoc.outfits.map(o => o.style).filter(Boolean))];
+  let fTemp = '全部', fStyle = '全部';
+  try { fTemp = localStorage.getItem('fTemp') || '全部'; fStyle = localStorage.getItem('fStyle') || '全部'; } catch (_) {}
+
+  function outfitCard(o) {
     const its = o.items.map(id => byId[id]).filter(Boolean);
     const pend = o.pending || [];
     const visual = o.photo
-      ? `<img class="hero" src="${esc(o.photo)}" alt="${esc(o.name)}">`
+      ? `<img class="hero" src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}" loading="lazy">`
       : `<div class="strip" style="grid-template-columns:repeat(${its.length + pend.length},1fr)">${pend.map(n => `<div class="pend"><b>${esc(n)}</b>待買</div>`).join('')}${its.map(photoOrPh).join('')}</div>`;
     const formula = [...pend.map(n => `<span class="pending">${esc(n)}（待買）</span>`),
                      ...its.map(it => `<a href="#" data-item="${it.id}">${esc(it.name)}</a>`)].join('<span class="plus">＋</span>');
-    return `<article class="outfit">
+    const formal = '●'.repeat(o.formal || 1) + '○'.repeat(3 - (o.formal || 1));
+    return `<article class="outfit" data-id="${o.id}" data-temp="${(o.temp || []).join(',')}" data-style="${esc(o.style || '')}">
       ${visual}
       <div class="body">
-        <div class="head"><div class="name">${esc(o.name)}</div><div class="meta">${esc(o.season)}</div></div>
-        <div><span class="tag">${esc(o.occasion)}</span></div>
+        <div class="head"><div class="name">${esc(o.name)}</div><div class="formal" title="正式度">${formal}</div></div>
+        <div class="badges">
+          ${o.style ? `<span class="tag style">${esc(o.style)}</span>` : ''}
+          ${(o.temp || []).map(t => `<span class="tag temp ${t}">${t}</span>`).join('')}
+          <span class="tag">${esc(o.occasion)}</span>
+        </div>
         <div class="formula">${formula}</div>
         ${o.tips?.length ? `<ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
         ${o.alt ? `<div class="alt"><b>變化：</b>${esc(o.alt)}</div>` : ''}
       </div>
     </article>`;
-  }).join('') || '<div class="empty">還沒有穿搭</div>';
+  }
+
+  function renderOutfits() {
+    const list = outfitsDoc.outfits.filter(o =>
+      (fTemp === '全部' || (o.temp || []).includes(fTemp)) &&
+      (fStyle === '全部' || o.style === fStyle));
+    $('#outfits').innerHTML = SCENES.map(sc => {
+      const os = list.filter(o => (o.scenes || []).includes(sc)).sort((a, b) => (b.formal || 0) - (a.formal || 0));
+      if (!os.length) return '';
+      return `<div class="scene-h">${esc(sc)} <small>${os.length} 套 · 正式 → 休閒</small></div>` + os.map(outfitCard).join('');
+    }).join('') || '<div class="empty">這個條件下沒有穿搭</div>';
+  }
+  function chips(elId, opts, cur, onPick) {
+    const el = $(elId);
+    el.innerHTML = ['全部', ...opts].map(c => `<button class="chip${c === cur ? ' on' : ''}" data-v="${esc(c)}">${esc(c)}</button>`).join('');
+    el.addEventListener('click', e => {
+      const b = e.target.closest('.chip'); if (!b) return;
+      el.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x === b));
+      onPick(b.dataset.v); renderOutfits();
+    });
+  }
+  chips('#temp-chips', TEMPS, fTemp, v => { fTemp = v; try { localStorage.setItem('fTemp', v); } catch (_) {} });
+  chips('#style-chips', STYLES, fStyle, v => { fStyle = v; try { localStorage.setItem('fStyle', v); } catch (_) {} });
+  renderOutfits();
 
   $('#outfits').addEventListener('click', e => {
     const a = e.target.closest('a[data-item]');

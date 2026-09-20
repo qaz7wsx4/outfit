@@ -13,7 +13,7 @@
   "outfits": [
     {
       "id": "a",
-      "name": "A · 約會",
+      "name": "A · 藍襯衫",
       "occasion": "約會、正式一點的吃飯",
       "season": "全年",
       "items": [
@@ -27,11 +27,20 @@
         "褲腳反摺一折，露出鞋口",
         "襯衫要燙過"
       ],
-      "alt": "十月後：白襯衫敞開套在深藍 T 外面，褲子鞋子不變。"
+      "alt": "十月後：白襯衫敞開套在深藍 T 外面，褲子鞋子不變。",
+      "scenes": [
+        "約會",
+        "上班"
+      ],
+      "style": "Clean Fit",
+      "formal": 2,
+      "temp": [
+        "熱"
+      ]
     },
     {
       "id": "b",
-      "name": "B · 朋友吃飯",
+      "name": "B · 深藍 T 卡其",
       "occasion": "朋友吃飯、一般出門",
       "season": "全年",
       "items": [
@@ -44,11 +53,20 @@
         "深藍配卡其，萬年不敗",
         "白 T 到貨後也可以換白 T"
       ],
-      "alt": "想有變化：鞋換黃色 Onitsuka，但褲子改黑褲，錶帶換黑。"
+      "alt": "想有變化：鞋換黃色 Onitsuka，但褲子改黑褲，錶帶換黑。",
+      "scenes": [
+        "朋友吃飯"
+      ],
+      "style": "Clean Fit",
+      "formal": 1,
+      "temp": [
+        "熱",
+        "涼"
+      ]
     },
     {
       "id": "c",
-      "name": "C · 逛街",
+      "name": "C · 軍綠 Gorpcore",
       "occasion": "逛街、休閒",
       "season": "全年",
       "items": [
@@ -60,11 +78,20 @@
       "tips": [
         "軍綠褲配軍綠高筒是同色系，不會錯"
       ],
-      "alt": "全黑版：黑 Smartwool T ＋ 黑褲 ＋ 黑 Vans。天熱：換軍綠工裝短褲。"
+      "alt": "全黑版：黑 Smartwool T ＋ 黑褲 ＋ 黑 Vans。天熱：換軍綠工裝短褲。",
+      "scenes": [
+        "逛街"
+      ],
+      "style": "Gorpcore",
+      "formal": 1,
+      "temp": [
+        "熱",
+        "涼"
+      ]
     },
     {
       "id": "d",
-      "name": "D · Clean Fit 白 T",
+      "name": "D · 白 T 黑褲",
       "occasion": "約會、朋友吃飯",
       "season": "全年",
       "items": [
@@ -77,7 +104,16 @@
         "白 T 塞進褲頭或自然垂下都行，但 T 不能皺",
         "褲腳反摺一折"
       ],
-      "alt": "褲子換卡其 chino 也可以；鞋換黃 Onitsuka 時褲子維持黑色。"
+      "alt": "褲子換卡其 chino 也可以；鞋換黃 Onitsuka 時褲子維持黑色。",
+      "scenes": [
+        "約會",
+        "朋友吃飯"
+      ],
+      "style": "Clean Fit",
+      "formal": 1,
+      "temp": [
+        "熱"
+      ]
     },
     {
       "id": "e",
@@ -95,11 +131,20 @@
         "白襯衫全部不扣、敞開套在深藍 T 外面，袖口捲兩折",
         "襯衫要燙，這套的成敗就在襯衫平不平"
       ],
-      "alt": "再冷一點：襯衫外面加針織（十月預算）。褲子換黑褲也行。這套就是 City Boy 的基本型。"
+      "alt": "再冷一點：襯衫外面加針織（十月預算）。褲子換黑褲也行。這套就是 City Boy 的基本型。",
+      "scenes": [
+        "約會",
+        "朋友吃飯"
+      ],
+      "style": "City Boy",
+      "formal": 1,
+      "temp": [
+        "涼"
+      ]
     },
     {
       "id": "f",
-      "name": "F · 短袖白襯衫",
+      "name": "F · 白短袖襯衫",
       "occasion": "約會、朋友吃飯",
       "season": "夏、初秋",
       "items": [
@@ -113,7 +158,170 @@
         "褲腳反摺一折",
         "襯衫要燙"
       ],
-      "alt": "褲子換卡其 chino 更輕鬆。跟 A 套（藍襯衫）輪流，一週兩次約會也不會重複。"
+      "alt": "褲子換卡其 chino 更輕鬆。跟 A 套（藍襯衫）輪流，一週兩次約會也不會重複。",
+      "scenes": [
+        "約會",
+        "上班"
+      ],
+      "style": "Clean Fit",
+      "formal": 2,
+      "temp": [
+        "熱"
+      ]
+    },
+    {
+      "id": "g",
+      "name": "G · 白長袖襯衫",
+      "scenes": [
+        "約會",
+        "上班"
+      ],
+      "style": "Clean Fit",
+      "formal": 3,
+      "temp": [
+        "涼"
+      ],
+      "occasion": "約會（正式一點）、上班",
+      "season": "秋冬",
+      "items": [
+        "shirt-white-ls",
+        "p-black",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "全部扣起來，最上面一顆不扣",
+        "袖口捲兩折到手腕上",
+        "一定要燙，這套的重點就是平"
+      ],
+      "alt": "鞋換沙漠靴（十二月）會更正式。"
+    },
+    {
+      "id": "h",
+      "name": "H · 白襯衫＋牛仔",
+      "scenes": [
+        "朋友吃飯",
+        "逛街"
+      ],
+      "style": "City Boy",
+      "formal": 1,
+      "temp": [
+        "涼"
+      ],
+      "occasion": "朋友吃飯、逛街",
+      "season": "秋冬",
+      "items": [
+        "shirt-white-ls",
+        "t-white",
+        "p-denim",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "白襯衫敞開套白 T，全白上身配牛仔藍",
+        "袖口捲兩折"
+      ],
+      "alt": "想要更 City Boy：褲腳反摺一折、白襪露出來。"
+    },
+    {
+      "id": "i",
+      "name": "I · 米 T 牛仔",
+      "scenes": [
+        "逛街"
+      ],
+      "style": "Clean Fit",
+      "formal": 1,
+      "temp": [
+        "熱"
+      ],
+      "occasion": "逛街、休閒",
+      "season": "全年",
+      "items": [
+        "t-beige",
+        "p-denim",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "米色配牛仔藍，最不會錯的休閒色"
+      ],
+      "alt": "天涼加白襯衫敞開就是 H。"
+    },
+    {
+      "id": "j",
+      "name": "J · 黃鞋亮點版",
+      "scenes": [
+        "逛街",
+        "朋友吃飯"
+      ],
+      "style": "亮點版",
+      "formal": 1,
+      "temp": [
+        "熱"
+      ],
+      "occasion": "逛街、朋友吃飯",
+      "season": "全年",
+      "items": [
+        "t-white",
+        "p-black",
+        "sh-ot-yellow"
+      ],
+      "photo": "",
+      "tips": [
+        "全身黑白，黃鞋是唯一亮點",
+        "那天錶帶換黑色（買了之後）",
+        "不要配任何有圖案的 T"
+      ],
+      "alt": "上衣換深藍 T 也可以，褲子維持黑。"
+    },
+    {
+      "id": "k",
+      "name": "K · 白短袖襯衫 深灰褲",
+      "scenes": [
+        "上班"
+      ],
+      "style": "Clean Fit",
+      "formal": 2,
+      "temp": [
+        "熱"
+      ],
+      "occasion": "上班",
+      "season": "夏、初秋",
+      "items": [
+        "shirt-white-ss",
+        "p-grey",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "白配深灰比白配黑柔和一點，上班剛好"
+      ],
+      "alt": "跟 A 套輪流，一週不會重複。"
+    },
+    {
+      "id": "l",
+      "name": "L · 深藍 T 深灰褲",
+      "scenes": [
+        "上班"
+      ],
+      "style": "Clean Fit",
+      "formal": 1,
+      "temp": [
+        "熱",
+        "涼"
+      ],
+      "occasion": "上班（沒有會議的日子）",
+      "season": "全年",
+      "items": [
+        "t-navy",
+        "p-grey",
+        "sh-vans"
+      ],
+      "photo": "",
+      "tips": [
+        "深藍配深灰是最安全的深色組合"
+      ],
+      "alt": "天涼套白襯衫敞開，就變成上班版的 E。"
     }
   ],
   "style": {
@@ -150,5 +358,16 @@
       "cycle": "每 4 週剪一次（漸層第三週開始糊）。黑殿或任何 barber shop，指令卡通用。"
     },
     "beard": "不留鬍子，每天刮乾淨（2026-09-20 看過三天分布圖：嘴角與下巴底邊密、人中與下巴正面稀、臉頰沒有，3mm 會斷成幾撮）。刮時下巴底邊和脖子那圈要刮到，那裡最密最容易漏。眉毛只清眉心。"
-  }
+  },
+  "scenes": [
+    "約會",
+    "朋友吃飯",
+    "逛街",
+    "上班"
+  ],
+  "temps": [
+    "熱",
+    "涼",
+    "冷"
+  ]
 }
