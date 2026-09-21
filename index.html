@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="16">
+<html lang="zh-Hant" data-v="17">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -82,6 +82,33 @@
   .outfit .strip .pend b { font-size: 13px; color: var(--ink-2); }
   .formula .pending { color: var(--ink-3); border-bottom: 1.5px dashed var(--line); }
   .outfit .body { padding: 14px 16px 16px; }
+  .ogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (min-width: 640px) { .ogrid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px) { .ogrid { grid-template-columns: repeat(4, 1fr); } }
+  .otile { background: var(--card); border-radius: var(--radius); overflow: hidden; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .otile img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; display: block; background: #fff; }
+  .otile .noimg { aspect-ratio: 3 / 4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--ink-3); font-size: 12px; background: #faf9f6; }
+  .otile .noimg span { font-size: 34px; opacity: .5; }
+  .otile .tb { padding: 8px 10px 10px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+  .otile .tn { font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .otile .tt { display: flex; gap: 4px; flex-shrink: 0; }
+  .otile .tt i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .otile .tt i.熱 { background: #e8a04a; } .otile .tt i.涼 { background: #5b8fb9; } .otile .tt i.冷 { background: #7b6fb5; }
+  /* 詳細頁 */
+  .sheet { position: fixed; inset: 0; z-index: 50; background: var(--bg); overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; }
+  .sheet.open { display: block; }
+  .sheet .top { position: sticky; top: 0; display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: rgba(244,242,238,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1; }
+  .sheet .top button { border: 0; background: var(--card); border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 14px; cursor: pointer; }
+  .sheet .top .t { font-weight: 700; font-size: 16px; }
+  .sheet .inner { max-width: 640px; margin: 0 auto; padding: 0 14px 40px; }
+  .sheet .hero { width: 100%; max-height: 62vh; object-fit: contain; display: block; background: #fff; border-radius: var(--radius); }
+  .sheet .items { display: grid; gap: 8px; margin: 12px 0; }
+  .sheet .irow { display: flex; align-items: center; gap: 12px; background: var(--card); border-radius: 12px; padding: 8px 12px 8px 8px; cursor: pointer; }
+  .sheet .irow img { width: 56px; height: 56px; object-fit: contain; background: #fff; border-radius: 8px; flex-shrink: 0; }
+  .sheet .irow .in { font-size: 15px; font-weight: 600; }
+  .sheet .irow .ib { font-size: 12px; color: var(--ink-3); }
+  .sheet .irow .go { margin-left: auto; color: var(--ink-3); }
+  .sheet .sec { font-size: 12px; color: var(--ink-3); font-weight: 600; letter-spacing: .06em; margin: 16px 0 6px; }
   .scene-h { font-size: 15px; font-weight: 700; margin: 22px 4px 10px; display: flex; align-items: baseline; gap: 8px; }
   .scene-h small { font-size: 12px; color: var(--ink-3); font-weight: 500; }
   .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
@@ -198,6 +225,11 @@
   </footer>
 </main>
 
+<div class="sheet" id="sheet">
+  <div class="top"><button id="sheet-close">‹ 返回</button><div class="t" id="sheet-title"></div></div>
+  <div class="inner" id="sheet-body"></div>
+</div>
+
 <nav>
   <button data-tab="outfits" class="on"><span class="ic">👕</span>穿搭</button>
   <button data-tab="wardrobe"><span class="ic">🗄️</span>衣櫃</button>
@@ -245,30 +277,52 @@
   let fTemp = '全部', fStyle = '全部';
   try { fTemp = localStorage.getItem('fTemp') || '全部'; fStyle = localStorage.getItem('fStyle') || '全部'; } catch (_) {}
 
-  function outfitCard(o) {
-    const its = o.items.map(id => byId[id]).filter(Boolean);
-    const pend = o.pending || [];
-    const visual = o.photo
-      ? `<img class="hero" src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}" loading="lazy">`
-      : `<div class="strip" style="grid-template-columns:repeat(${its.length + pend.length},1fr)">${pend.map(n => `<div class="pend"><b>${esc(n)}</b>待買</div>`).join('')}${its.map(photoOrPh).join('')}</div>`;
-    const formula = [...pend.map(n => `<span class="pending">${esc(n)}（待買）</span>`),
-                     ...its.map(it => `<a href="#" data-item="${it.id}">${esc(it.name)}</a>`)].join('<span class="plus">＋</span>');
+  function outfitTile(o) {
     const formal = '●'.repeat(o.formal || 1) + '○'.repeat(3 - (o.formal || 1));
-    return `<article class="outfit" data-id="${o.id}" data-temp="${(o.temp || []).join(',')}" data-style="${esc(o.style || '')}">
-      ${visual}
-      <div class="body">
-        <div class="head"><div class="name">${esc(o.name)}</div><div class="formal" title="正式度">${formal}</div></div>
-        <div class="badges">
-          ${o.style ? `<span class="tag style">${esc(o.style)}</span>` : ''}
-          ${(o.temp || []).map(t => `<span class="tag temp ${t}">${t}</span>`).join('')}
-          <span class="tag">${esc(o.occasion)}</span>
-        </div>
-        <div class="formula">${formula}</div>
-        ${o.tips?.length ? `<ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
-        ${o.alt ? `<div class="alt"><b>變化：</b>${esc(o.alt)}</div>` : ''}
-      </div>
-    </article>`;
+    const visual = o.photo
+      ? `<img src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}" loading="lazy">`
+      : `<div class="noimg"><span>🧍</span>插圖待生成</div>`;
+    return `<div class="otile" data-id="${o.id}">${visual}
+      <div class="tb"><div class="tn">${esc(o.name)}</div>
+      <div class="tt" title="${esc((o.temp || []).join('／'))}">${(o.temp || []).map(t => `<i class="${t}"></i>`).join('')}</div></div>
+    </div>`;
   }
+
+  function openOutfit(id, push = true) {
+    const o = outfitsDoc.outfits.find(x => x.id === id); if (!o) return;
+    const its = o.items.map(i => byId[i]).filter(Boolean);
+    const pend = o.pending || [];
+    const formal = '●'.repeat(o.formal || 1) + '○'.repeat(3 - (o.formal || 1));
+    $('#sheet-title').textContent = o.name;
+    $('#sheet-body').innerHTML = `
+      ${o.photo ? `<img class="hero" src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}">` : ''}
+      <div class="badges" style="margin-top:12px">
+        ${o.style ? `<span class="tag style">${esc(o.style)}</span>` : ''}
+        ${(o.temp || []).map(t => `<span class="tag temp ${t}">${t}</span>`).join('')}
+        <span class="tag">${esc(o.occasion)}</span>
+        <span class="formal" style="margin-left:auto">${formal}</span>
+      </div>
+      <div class="sec">單品</div>
+      <div class="items">
+        ${pend.map(n => `<div class="irow" style="opacity:.6"><div class="in">${esc(n)}</div><div class="ib" style="margin-left:auto">待買</div></div>`).join('')}
+        ${its.map(it => `<div class="irow" data-item="${it.id}">${photoOrPh(it)}<div><div class="in">${esc(it.name)}</div><div class="ib">${esc([it.brand, it.model].filter(Boolean).join(' · '))}</div></div><div class="go">›</div></div>`).join('')}
+      </div>
+      ${o.tips?.length ? `<div class="sec">怎麼穿</div><ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+      ${o.alt ? `<div class="alt" style="margin-top:14px"><b>變化：</b>${esc(o.alt)}</div>` : ''}`;
+    $('#sheet').classList.add('open'); $('#sheet').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    if (push) history.pushState({ outfit: id }, '', '#o=' + id);
+  }
+  function closeOutfit(pop = true) {
+    $('#sheet').classList.remove('open'); document.body.style.overflow = '';
+    if (pop && history.state && history.state.outfit) history.back();
+  }
+  $('#sheet-close').addEventListener('click', () => closeOutfit());
+  window.addEventListener('popstate', () => { if (!(history.state && history.state.outfit)) closeOutfit(false); });
+  $('#sheet-body').addEventListener('click', e => {
+    const r = e.target.closest('.irow[data-item]'); if (!r) return;
+    closeOutfit(); jumpToItem(r.dataset.item);
+  });
 
   function renderOutfits() {
     const list = outfitsDoc.outfits.filter(o =>
@@ -277,7 +331,7 @@
     $('#outfits').innerHTML = SCENES.map(sc => {
       const os = list.filter(o => (o.scenes || []).includes(sc)).sort((a, b) => (b.formal || 0) - (a.formal || 0));
       if (!os.length) return '';
-      return `<div class="scene-h">${esc(sc)} <small>${os.length} 套 · 正式 → 休閒</small></div>` + os.map(outfitCard).join('');
+      return `<div class="scene-h">${esc(sc)} <small>${os.length} 套 · 正式 → 休閒</small></div><div class="ogrid">${os.map(outfitTile).join('')}</div>`;
     }).join('') || '<div class="empty">這個條件下沒有穿搭</div>';
   }
   function chips(elId, opts, cur, onPick) {
@@ -294,11 +348,10 @@
   renderOutfits();
 
   $('#outfits').addEventListener('click', e => {
-    const a = e.target.closest('a[data-item]');
-    if (!a) return;
-    e.preventDefault();
-    jumpToItem(a.dataset.item);
+    const t = e.target.closest('.otile'); if (t) openOutfit(t.dataset.id);
   });
+  // 從網址直接開某一套
+  const m = location.hash.match(/#o=([a-z0-9-]+)/); if (m) openOutfit(m[1], false);
 
   /* ---------- wardrobe ---------- */
   const cats = ['全部', ...[...new Set(items.map(i => i.category))]];
