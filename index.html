@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="20">
+<html lang="zh-Hant" data-v="21">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -458,6 +458,7 @@
       ${h3('約會')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.date)}</div>
       ${h3('造型品')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.product)}</div>
       ${h3('週期')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.cycle)}</div>
+      ${g.hair.next ? `${h3('下一次')}<div style="font-size:14px;line-height:1.6;padding:6px 0;font-weight:600">${esc(g.hair.next)}</div>` : ''}
       ${h3('鬍子')}<div style="font-size:14px;line-height:1.6;padding:6px 0 12px">${esc(g.beard)}</div>`;
   }
   const st = outfitsDoc.style;
