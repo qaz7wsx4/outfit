@@ -331,6 +331,26 @@
     }
   },
   {
+    "id": "sh-gat",
+    "category": "鞋",
+    "name": "德訓鞋",
+    "brand": "Reproduction of Found",
+    "model": "German Military Trainer 1700L",
+    "color": "白皮革＋米色麂皮",
+    "size": "EU 41",
+    "price": 7100,
+    "bought": "2026-09-26",
+    "use": "約會",
+    "note": "Clean Fit 的乾淨鞋，約會與正式一點的場合用。麂皮怕水，第一次穿前噴防水噴霧。不配軍綠那套（會變日系登山風）。",
+    "photo": "photos/items/sh-gat.svg",
+    "shape": "sneaker",
+    "colors": {
+      "main": "#f4f1ea",
+      "sole": "#cdbd94",
+      "lace": "#ffffff"
+    }
+  },
+  {
     "id": "sh-altra",
     "category": "鞋",
     "name": "越野跑鞋",
