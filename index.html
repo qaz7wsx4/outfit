@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="22">
+<html lang="zh-Hant" data-v="23">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -215,6 +215,8 @@
     <div class="rules" id="style"></div>
     <h2>穿搭規則</h2>
     <div class="rules"><ol id="rules"></ol></div>
+    <h2>鞋子尺寸</h2>
+    <div class="rules" id="size"></div>
     <h2>髮型</h2>
     <div class="rules" id="hair"></div>
   </section>
@@ -447,6 +449,10 @@
 
   /* ---------- rules ---------- */
   $('#rules').innerHTML = outfitsDoc.rules.map(r => `<li>${esc(r)}</li>`).join('');
+  const sz = outfitsDoc.size;
+  if (sz) $('#size').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(sz.foot)}</div>`
+    + `<ol>${sz.known.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`
+    + `<div style="font-size:14px;color:var(--ink-2);line-height:1.6;padding:10px 0 12px">${esc(sz.rule)}</div>`;
   const g = outfitsDoc.grooming;
   if (g) {
     const ol = a => `<ol>${a.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`;
