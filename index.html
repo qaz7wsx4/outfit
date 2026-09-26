@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="26">
+<html lang="zh-Hant" data-v="27">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -215,6 +215,8 @@
     <div class="rules" id="style"></div>
     <h2>穿搭規則</h2>
     <div class="rules"><ol id="rules"></ol></div>
+    <h2>襪子</h2>
+    <div class="rules" id="socks"></div>
     <h2>鞋子尺寸</h2>
     <div class="rules" id="size"></div>
     <h2>髮型</h2>
@@ -309,6 +311,7 @@
         ${pend.map(n => `<div class="irow" style="opacity:.6"><div class="in">${esc(n)}</div><div class="ib" style="margin-left:auto">待買</div></div>`).join('')}
         ${its.map(it => `<div class="irow" data-item="${it.id}">${photoOrPh(it)}<div><div class="in">${esc(it.name)}</div><div class="ib">${esc([it.brand, it.model].filter(Boolean).join(' · '))}</div></div><div class="go">›</div></div>`).join('')}
       </div>
+      ${o.socks ? `<div class="sec">襪子</div><div style="font-size:14px;line-height:1.6;padding:2px 0 4px">${esc(o.socks)}</div>` : ''}
       ${o.tips?.length ? `<div class="sec">怎麼穿</div><ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
       ${o.alt ? `<div class="alt" style="margin-top:14px"><b>變化：</b>${esc(o.alt)}</div>` : ''}`;
     $('#sheet').classList.add('open'); $('#sheet').scrollTop = 0;
@@ -449,6 +452,8 @@
 
   /* ---------- rules ---------- */
   $('#rules').innerHTML = outfitsDoc.rules.map(r => `<li>${esc(r)}</li>`).join('');
+  const sk = outfitsDoc.socks;
+  if (sk) $('#socks').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(sk.default)}</div><ol>${sk.rules.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`;
   const sz = outfitsDoc.size;
   if (sz) $('#size').innerHTML = `<div style="padding:12px 0 4px;font-size:17px;font-weight:700">${esc(sz.foot)}</div>`
     + `<ol>${sz.known.map(r => `<li>${esc(r)}</li>`).join('')}</ol>`
