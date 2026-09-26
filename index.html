@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="30">
+<html lang="zh-Hant" data-v="31">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -466,6 +466,7 @@
       <div style="font-size:14px;color:var(--ink-2);line-height:1.6">${esc(g.hair.why)}</div>
       ${h3('給理髮師看這段')}${ol(g.hair.barber)}
       ${h3('每天 3 分鐘')}${ol(g.hair.daily)}
+      ${g.hair.styles ? g.hair.styles.map(s => `${h3(s.name)}<div style="font-size:14px;line-height:1.7;padding:2px 0 6px">${esc(s.how)}<div style="color:var(--ink-3);margin-top:4px">什麼時候用：${esc(s.when)}</div><div style="color:var(--ink-3)">${esc(s.note)}</div></div>`).join('') : ''}
       ${h3('約會')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.date)}</div>
       ${h3('造型品')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.product)}</div>
       ${h3('週期')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.cycle)}</div>
