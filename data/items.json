@@ -153,6 +153,24 @@
     }
   },
   {
+    "id": "knit-grey",
+    "category": "上衣",
+    "name": "淺灰圓領針織衫",
+    "brand": "",
+    "model": "",
+    "color": "淺灰（麻花）",
+    "size": "",
+    "price": null,
+    "bought": "",
+    "use": "日常",
+    "note": "秋冬第二／第三層。素面圓領，套在 T 或襯衫外面都行。不要單穿配短褲。",
+    "photo": "photos/items/knit-grey.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#b9b7b1"
+    }
+  },
+  {
     "id": "p-black",
     "category": "長褲",
     "name": "黑色窄版長褲",
