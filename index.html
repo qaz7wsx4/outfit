@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="44">
+<html lang="zh-Hant" data-v="45">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -505,6 +505,7 @@
       ${h3('週期')}<div style="font-size:14px;line-height:1.6;padding:6px 0">${esc(g.hair.cycle)}</div>
       ${g.hair.log ? `${h3('上次紀錄')}<div style="font-size:14px;line-height:1.6;padding:6px 0;color:var(--ink-2)">${esc(g.hair.log)}</div>` : ''}
       ${g.hair.next ? `${h3('下一次')}<div style="font-size:14px;line-height:1.6;padding:6px 0;font-weight:600">${esc(g.hair.next)}</div>` : ''}
+      ${g.scalp ? `${h3('頭皮（乾燥）')}<div style="font-size:14px;line-height:1.7;padding:2px 0 6px"><div style="color:var(--ink-3)">${esc(g.scalp.why)}</div><ol style="margin:6px 0">${g.scalp.wash.map(r => `<li>${esc(r)}</li>`).join('')}</ol><div><b>洗髮精：</b>${esc(g.scalp.shampoo)}</div><div style="margin-top:4px"><b>頭皮水：</b>${esc(g.scalp.tonic)}</div><div style="margin-top:4px;color:var(--ink-3)">${esc(g.scalp.avoid)}</div></div>` : ''}
       ${h3('鬍子')}<div style="font-size:14px;line-height:1.6;padding:6px 0 12px">${esc(g.beard)}</div>`;
   }
   const st = outfitsDoc.style;
