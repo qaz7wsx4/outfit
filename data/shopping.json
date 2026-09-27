@@ -80,25 +80,30 @@
       "month": "2026-11",
       "items": [
         {
-          "name": "德訓鞋 Reproduction of Found 1700L 白",
-          "where": "RoF 台灣代理／實體店試穿",
-          "price": "7,100",
+          "name": "外套 1／3：防水機能外套（nanamica Cruiser 或 Hooded Jacket）",
+          "where": "nanamica 代理／日本代購",
+          "price": "15,000～25,000",
           "counts": true,
-          "status": "已買",
-          "why": "Clean Fit 標準鞋，也是古著的橋樑。尺寸 EU 41（腳長 26.5，RoF 偏大不用 42），有貨再買；40 太小不要將就。Novesta 反而更貴（7,680），不選。"
-        },
-        {
-          "name": "麂皮防水噴霧（＋麂皮刷）",
-          "where": "Collonil／Crep Protect／Jason Markk；鞋店、寶雅、蝦皮",
-          "price": "300～600（刷子另 150）",
-          "counts": false,
           "status": "待買",
-          "why": "德訓鞋米色麂皮怕水漬。距離 20～25 cm 噴一層、不要噴到濕，晾過夜再穿；每兩個月或淋雨後補噴。髒了用麂皮刷乾刷。"
+          "why": "GORE-TEX 防水防風但版型是都會的、logo 極小。台灣冬天濕冷下雨最需要這件。顏色選深藍或米色。"
         }
       ]
     },
     {
-      "month": "2026-12",
+      "month": "2027-01",
+      "items": [
+        {
+          "name": "外套 3／3：長版外套（短版羊毛大衣或風衣）",
+          "where": "待選（逛過再定品牌）",
+          "price": "開放",
+          "counts": true,
+          "status": "待買",
+          "why": "衣櫃沒有長版。長度到大腿中段，深灰、駝色或深藍。台灣濕冷，優先考慮混紡或有防潑水處理的，不要純羊毛。約會與正式場合用。"
+        }
+      ]
+    },
+    {
+      "month": "2027-02",
       "items": [
         {
           "name": "Clarks Desert Boot 沙色麂皮",
@@ -106,7 +111,20 @@
           "price": "4000～5000",
           "counts": true,
           "status": "待定",
-          "why": "秋冬的「稍微正式一點但還是我」那雙，Clean Fit 和古著都能穿。"
+          "why": "從 12 月延後。外套使用頻率高於第二雙鞋，先買外套。"
+        }
+      ]
+    },
+    {
+      "month": "2026-12",
+      "items": [
+        {
+          "name": "外套 2／3：經典短夾克（Baracuta G9 Harrington）",
+          "where": "Baracuta 代理／選品店",
+          "price": "12,000～15,000",
+          "counts": true,
+          "status": "待買",
+          "why": "Harrington 的原型，英國製。長度到腰，配黑褲／卡其／牛仔全合，套在針織外面剛好。深藍或米色。不防水。"
         }
       ]
     },
@@ -131,5 +149,6 @@
         }
       ]
     }
-  ]
+  ],
+  "note": "外套三件從 2026-11 起每月一件，預算開放（比照鞋子挑品質）。"
 }
