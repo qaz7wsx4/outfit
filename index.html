@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="41">
+<html lang="zh-Hant" data-v="42">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -86,7 +86,15 @@
   @media (min-width: 640px) { .ogrid { grid-template-columns: repeat(3, 1fr); } }
   @media (min-width: 900px) { .ogrid { grid-template-columns: repeat(4, 1fr); } }
   .otile { background: var(--card); border-radius: var(--radius); overflow: hidden; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .otile { position: relative; }
   .otile img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; display: block; background: #fff; }
+  .coat { position: absolute; top: 8px; right: 8px; z-index: 2; border: 0; border-radius: 999px; width: 34px; height: 34px;
+    background: rgba(255,255,255,.92); box-shadow: 0 1px 4px rgba(0,0,0,.14); font-size: 17px; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; padding: 0; }
+  .coat.off { background: rgba(28,28,30,.82); }
+  .sheet .coat { position: static; width: auto; height: auto; padding: 8px 14px; font-size: 14px; border-radius: 999px; background: var(--card); box-shadow: none; gap: 6px; }
+  .sheet .coat.off { background: var(--ink); color: #fff; }
+  .irow.muted { opacity: .38; }
   .otile .noimg { aspect-ratio: 3 / 4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--ink-3); font-size: 12px; background: #faf9f6; }
   .otile .noimg span { font-size: 34px; opacity: .5; }
   .otile .tb { padding: 8px 10px 10px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
@@ -286,7 +294,9 @@
     const visual = o.photo
       ? `<img src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}" loading="lazy">`
       : `<div class="noimg"><span>🧍</span>插圖待生成</div>`;
-    return `<div class="otile" data-id="${o.id}">${visual}
+    const coatBtn = (o.outer && o.photoOff)
+      ? `<button class="coat" data-coat="${o.id}" title="切換外套">🧥</button>` : '';
+    return `<div class="otile" data-id="${o.id}">${coatBtn}${visual}
       <div class="tb"><div class="tn">${esc(o.name)}</div>
       <div class="tt" title="${esc((o.temp || []).join('／'))}">${(o.temp || []).map(t => `<i class="${t}"></i>`).join('')}</div></div>
     </div>`;
@@ -298,8 +308,10 @@
     const pend = o.pending || [];
     const formal = '●'.repeat(o.formal || 1) + '○'.repeat(3 - (o.formal || 1));
     $('#sheet-title').textContent = o.name;
+    const hasCoat = !!(o.outer && o.photoOff);
     $('#sheet-body').innerHTML = `
-      ${o.photo ? `<img class="hero" src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}">` : ''}
+      ${o.photo ? `<img class="hero" id="sheet-hero" src="${esc(o.photo)}?v=${V}" alt="${esc(o.name)}">` : ''}
+      ${hasCoat ? `<div style="display:flex;justify-content:center;margin-top:10px"><button class="coat" id="sheet-coat" data-on="1">🧥 脫掉外套看看</button></div>` : ''}
       <div class="badges" style="margin-top:12px">
         ${o.style ? `<span class="tag style">${esc(o.style)}</span>` : ''}
         ${(o.temp || []).map(t => `<span class="tag temp ${t}">${t}</span>`).join('')}
@@ -309,11 +321,22 @@
       <div class="sec">單品</div>
       <div class="items">
         ${pend.map(n => `<div class="irow" style="opacity:.6"><div class="in">${esc(n)}</div><div class="ib" style="margin-left:auto">待買</div></div>`).join('')}
-        ${its.map(it => `<div class="irow" data-item="${it.id}">${photoOrPh(it)}<div><div class="in">${esc(it.name)}</div><div class="ib">${esc([it.brand, it.model].filter(Boolean).join(' · '))}</div></div><div class="go">›</div></div>`).join('')}
+        ${its.map(it => `<div class="irow${it.id === o.outer ? ' outer-row' : ''}" data-item="${it.id}">${photoOrPh(it)}<div><div class="in">${esc(it.name)}</div><div class="ib">${esc([it.brand, it.model].filter(Boolean).join(' · '))}</div></div><div class="go">›</div></div>`).join('')}
       </div>
       ${o.socks ? `<div class="sec">襪子</div><div style="font-size:14px;line-height:1.6;padding:2px 0 4px">${esc(o.socks)}</div>` : ''}
       ${o.tips?.length ? `<div class="sec">怎麼穿</div><ul class="tips">${o.tips.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
       ${o.alt ? `<div class="alt" style="margin-top:14px"><b>變化：</b>${esc(o.alt)}</div>` : ''}`;
+    const cb = $('#sheet-coat');
+    if (cb) cb.addEventListener('click', () => {
+      const on = cb.dataset.on === '1';
+      cb.dataset.on = on ? '0' : '1';
+      cb.classList.toggle('off', on);
+      cb.textContent = on ? '🧥 穿上外套' : '🧥 脫掉外套看看';
+      const hero = $('#sheet-hero');
+      if (hero) hero.src = (on ? o.photoOff : o.photo) + '?v=' + V;
+      const row = $('#sheet-body .outer-row');
+      if (row) row.classList.toggle('muted', on);
+    });
     $('#sheet').classList.add('open'); $('#sheet').scrollTop = 0;
     document.body.style.overflow = 'hidden';
     if (push) history.pushState({ outfit: id }, '', '#o=' + id);
@@ -353,6 +376,15 @@
   renderOutfits();
 
   $('#outfits').addEventListener('click', e => {
+    const c = e.target.closest('.coat[data-coat]');
+    if (c) {
+      e.stopPropagation();
+      const oo = outfitsDoc.outfits.find(x => x.id === c.dataset.coat);
+      const img = c.parentElement.querySelector('img');
+      const on = c.classList.toggle('off');
+      if (img && oo) img.src = (on ? oo.photoOff : oo.photo) + '?v=' + V;
+      return;
+    }
     const t = e.target.closest('.otile'); if (t) openOutfit(t.dataset.id);
   });
   // 從網址直接開某一套

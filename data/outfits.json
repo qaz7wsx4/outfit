@@ -153,7 +153,9 @@
       "temp": [
         "涼"
       ],
-      "socks": "白色中筒襪，褲腳反摺露出一截"
+      "socks": "白色中筒襪，褲腳反摺露出一截",
+      "outer": "shirt-white-ls",
+      "photoOff": "photos/outfits/e-off.jpg"
     },
     {
       "id": "f",
@@ -239,7 +241,9 @@
         "袖口捲兩折"
       ],
       "alt": "想要更 City Boy：褲腳反摺一折、白襪露出來。",
-      "socks": "白色中筒襪，褲腳反摺露出一截"
+      "socks": "白色中筒襪，褲腳反摺露出一截",
+      "outer": "shirt-white-ls",
+      "photoOff": "photos/outfits/h-off.jpg"
     },
     {
       "id": "i",
@@ -402,7 +406,9 @@
         "針織不要塞進褲子",
         "薄款所以穿在襯衫外面也不會腫，兩種穿法都行"
       ],
-      "alt": "反過來穿也可以：針織在裡、白襯衫敞開在外。褲子換卡其 chino 柔和一點；鞋換黑 Vans 就是休閒版。"
+      "alt": "反過來穿也可以：針織在裡、白襯衫敞開在外。褲子換卡其 chino 柔和一點；鞋換黑 Vans 就是休閒版。",
+      "outer": "knit-grey",
+      "photoOff": "photos/outfits/n-off.jpg"
     },
     {
       "id": "o",
@@ -430,7 +436,9 @@
         "針織直接套白 T，簡單但不會錯",
         "淺灰配牛仔藍是最安全的冷天組合"
       ],
-      "alt": "上衣換深藍 T 也行。鞋換德訓鞋會更乾淨。"
+      "alt": "上衣換深藍 T 也行。鞋換德訓鞋會更乾淨。",
+      "outer": "knit-grey",
+      "photoOff": "photos/outfits/o-off.jpg"
     },
     {
       "id": "p",
@@ -460,7 +468,9 @@
         "袖口捲一折露出手腕",
         "裡面白 T 不紮"
       ],
-      "alt": "再冷：裡面加針織衫變三層。鞋換黑 Vans 就是休閒版。"
+      "alt": "再冷：裡面加針織衫變三層。鞋換黑 Vans 就是休閒版。",
+      "outer": "oshirt-grey",
+      "photoOff": "photos/outfits/p-off.jpg"
     },
     {
       "id": "q",
@@ -489,7 +499,9 @@
         "褲子一定不能是牛仔褲——丹寧撞丹寧",
         "配卡其或黑褲最安全"
       ],
-      "alt": "褲子換黑褲更俐落。這件帶復古感，是你目前最接近古著的單品。"
+      "alt": "褲子換黑褲更俐落。這件帶復古感，是你目前最接近古著的單品。",
+      "outer": "oshirt-denim",
+      "photoOff": "photos/outfits/q-off.jpg"
     },
     {
       "id": "r",
@@ -517,7 +529,9 @@
         "軍綠外套配黑褲，不要配軍綠褲",
         "裡面素面，MA-1 本身已經夠有存在感"
       ],
-      "alt": "裡面換深藍 T 也行。天冷加針織在裡面。"
+      "alt": "裡面換深藍 T 也行。天冷加針織在裡面。",
+      "outer": "ma1-olive",
+      "photoOff": "photos/outfits/r-off.jpg"
     }
   ],
   "style": {
