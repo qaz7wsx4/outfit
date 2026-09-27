@@ -171,6 +171,80 @@
     }
   },
   {
+    "id": "oshirt-grey",
+    "category": "外套",
+    "name": "灰色立領襯衫外套",
+    "brand": "無印良品",
+    "model": "",
+    "color": "灰",
+    "size": "",
+    "price": null,
+    "bought": "",
+    "use": "日常",
+    "note": "最好用的一件外套：素面、立領、無 logo。敞開套 T，或套在針織外面當第三層。",
+    "photo": "photos/items/oshirt-grey.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#a8a6a1",
+      "button": "#8d8b86"
+    }
+  },
+  {
+    "id": "oshirt-denim",
+    "category": "外套",
+    "name": "丹寧西部襯衫",
+    "brand": "Levi's",
+    "model": "",
+    "color": "中藍丹寧",
+    "size": "",
+    "price": null,
+    "bought": "",
+    "use": "逛街",
+    "note": "是襯衫但當襯衫式外套用，敞開套白 T。帶復古感。禁忌：不要配牛仔褲（丹寧撞丹寧）。",
+    "photo": "photos/items/oshirt-denim.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#5b7ea6",
+      "button": "#e8e6e0"
+    }
+  },
+  {
+    "id": "ma1-olive",
+    "category": "外套",
+    "name": "MA-1 飛行外套",
+    "brand": "Alpha Industries",
+    "model": "MA-1",
+    "color": "軍綠",
+    "size": "",
+    "price": null,
+    "bought": "",
+    "use": "逛街",
+    "note": "偏街頭軍事風。配黑褲或深灰褲；不要配軍綠褲（同色系撞）。",
+    "photo": "photos/items/ma1-olive.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#5f6444"
+    }
+  },
+  {
+    "id": "shell-mammut",
+    "category": "外套",
+    "name": "深藍硬殼外套",
+    "brand": "Mammut",
+    "model": "",
+    "color": "深藍",
+    "size": "",
+    "price": null,
+    "bought": "",
+    "use": "山上",
+    "note": "防水，但袖子有大 logo。下雨天、逛街可當 Gorpcore；約會不要。",
+    "photo": "photos/items/shell-mammut.svg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#2b3350"
+    }
+  },
+  {
     "id": "p-black",
     "category": "長褲",
     "name": "黑色窄版長褲",
