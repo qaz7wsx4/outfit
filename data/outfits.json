@@ -491,13 +491,14 @@
     "冷"
   ],
   "size": {
-    "foot": "腳長 26.5 cm＝US 8.5＝EU 41，這是基準。",
+    "foot": "腳長 26.5 cm＝US 8.5＝EU 41，這是基準。身高 170 cm、63 kg。",
     "known": [
       "Reproduction of Found 德訓鞋：EU 41 剛好（正常尺寸）",
       "Vans Authentic：US 7.5（Vans 偏大半號；現有這雙 8.0 大了半號）",
       "Onitsuka Tiger：US 8.5",
       "Altra、ASICS 跑鞋：US 8.5",
-      "Keen 涼鞋：US 8.5"
+      "Keen 涼鞋：US 8.5",
+      "nanamica 外套：XS（身高 170／63 kg；日系標準會建議 S，但偏瘦＋Clean Fit 取合身）"
     ],
     "rule": "網購新鞋前先讓 Claude 查該款版型偏大或偏小，再決定尺寸；沒有把握就買能退換的通路。"
   },
