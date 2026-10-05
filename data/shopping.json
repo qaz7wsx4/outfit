@@ -109,12 +109,20 @@
       "month": "2027-01",
       "items": [
         {
-          "name": "外套 3／3：長版外套（短版羊毛大衣或風衣）",
-          "where": "待選（逛過再定品牌）",
-          "price": "開放",
+          "name": "外套 3／3：羊毛混紡 Balmacaan 長大衣（炭灰）",
+          "where": "Traditional Weatherwear 首選；Sanyo Coat、Mackintosh 為升級選項。台灣通路未查證，找到頁面給 Claude 看版型",
+          "price": "開放（TW 約 15,000～25,000；Sanyo 20,000～40,000；Mackintosh 35,000～45,000）",
           "counts": true,
           "status": "待買",
-          "why": "衣櫃沒有長版。長度到大腿中段，深灰、駝色或深藍。台灣濕冷，優先考慮混紡或有防潑水處理的，不要純羊毛。約會與正式場合用。"
+          "why": "一月不再買防水（屆時已有 Mammut＋nanamica 兩件）。長大衣的任務是「看起來有打理過」＝羊毛的工作，下雨天穿 nanamica。規格：Balmacaan 領型、raglan 袖、着丈 95～100cm（大腿中段）、羊毛 70～80% 混紡。不要風衣（細節太多）、不要雙排扣（170cm 顯矮）、不要再買深藍。首購選 Traditional Weatherwear：版型為亞洲身形調過，先學會自己要什麼再升級。"
+        },
+        {
+          "name": "（前置）去 Uniqlo 試穿大衣量着丈",
+          "where": "Uniqlo",
+          "price": "0（只試不買）",
+          "counts": false,
+          "status": "待辦",
+          "why": "沒穿過長版，170cm 對長度最敏感。試穿找出最舒服的着丈公分數，之後買貴的才不會錯。"
         }
       ]
     },
