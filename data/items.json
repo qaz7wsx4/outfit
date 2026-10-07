@@ -153,6 +153,25 @@
     }
   },
   {
+    "id": "shirt-check",
+    "category": "上衣",
+    "name": "深藍白水牛格法蘭絨襯衫",
+    "brand": "",
+    "model": "",
+    "color": "深藍×白（大格）",
+    "size": "",
+    "price": null,
+    "bought": "（原本就有）",
+    "use": "逛街",
+    "note": "衣櫃裡最搶眼的一件。只敞開套在素面 T 外面，不要扣起來單穿（會變伐木工）。褲子一定素面深色、黑褲最好；不配牛仔（丹寧撞格紋）、不配其他圖案、不配黃鞋。",
+    "photo": "photos/items/shirt-check.svg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#2f3a5c",
+      "button": "#f2f0ea"
+    }
+  },
+  {
     "id": "knit-grey",
     "category": "上衣",
     "name": "淺灰圓領針織衫",
