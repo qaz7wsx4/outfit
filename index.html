@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="58">
+<html lang="zh-Hant" data-v="59">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -465,7 +465,9 @@
   /* ---------- shopping ---------- */
   const firstNum = s => { const m = String(s ?? '').match(/\d+/); return m ? Number(m[0]) : 0; };
   if (shopping.note) $('#shopping').insertAdjacentHTML('beforebegin', '');
-  $('#shopping').innerHTML = shopping.plans.map(pl => {
+  const planKey = m => /^\d{4}-\d{2}$/.test(m) ? '0' + m : '1' + m;
+  const plans = [...shopping.plans].sort((a, b) => planKey(a.month) < planKey(b.month) ? -1 : 1);
+  $('#shopping').innerHTML = plans.map(pl => {
     const counted = pl.items.filter(x => x.counts);
     const bought = counted.filter(x => x.status === '已買');
     const spent = bought.reduce((s, x) => s + firstNum(x.price), 0);
