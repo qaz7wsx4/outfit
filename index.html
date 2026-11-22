@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-v="70">
+<html lang="zh-Hant" data-v="71">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -178,7 +178,7 @@
   .buy .y { font-size: 13px; color: var(--ink-2); line-height: 1.6; grid-column: 1 / -1; margin-top: 4px; }
   .st { font-size: 11px; padding: 2px 7px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); margin-left: 6px; font-weight: 600; vertical-align: 1px; }
   .st.已買 { background: #e8efe4; color: #3d5a2f; }
-  .st.可選, .st.待定 { background: #eee; color: var(--ink-3); }
+  .st.可選, .st.取消 { background: #eee; color: var(--ink-3); }
   .buy.done .n { text-decoration: line-through; color: var(--ink-3); }
 
   /* ---- rules ---- */
@@ -464,19 +464,21 @@
 
   /* ---------- shopping ---------- */
   const firstNum = s => { const m = String(s ?? '').match(/\d+/); return m ? Number(m[0]) : 0; };
+  const CLOSED = new Set(['已買', '取消']);   // 這兩個狀態畫刪除線
+  const BOUGHT = '已買';                      // 只有這個計入預算與件數
   if (shopping.note) $('#shopping').insertAdjacentHTML('beforebegin', '');
   const planKey = m => /^\d{4}-\d{2}$/.test(m) ? '0' + m : '1' + m;
   const plans = [...shopping.plans].sort((a, b) => planKey(a.month) < planKey(b.month) ? -1 : 1);
   $('#shopping').innerHTML = plans.map(pl => {
     const counted = pl.items.filter(x => x.counts);
-    const bought = counted.filter(x => x.status === '已買');
+    const bought = counted.filter(x => x.status === BOUGHT);
     const spent = bought.reduce((s, x) => s + firstNum(x.price), 0);
     const cap = shopping.budget_per_month, n = shopping.max_items_per_month;
     const meta = /^\d{4}-\d{2}$/.test(pl.month)
       ? `${bought.length}／${n} 件 · 已花 $${spent.toLocaleString()}／$${cap.toLocaleString()}` : '';
     return `<div class="month">
       <div class="mh"><b>${esc(pl.month)}</b><span>${meta}</span></div>
-      ${pl.items.map(x => `<div class="buy${x.status === '已買' ? ' done' : ''}">
+      ${pl.items.map(x => `<div class="buy${CLOSED.has(x.status) ? ' done' : ''}">
         <div class="n">${esc(x.name)}<span class="st ${esc(x.status)}">${esc(x.status)}</span></div>
         <div class="p">${x.price ? esc(x.price) + ' 元' : ''}</div>
         <div class="w">${esc(x.where || '')}${x.counts ? '' : (x.where ? ' · ' : '') + '不算衣服預算'}</div>
