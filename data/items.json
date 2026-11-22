@@ -172,6 +172,25 @@
     }
   },
   {
+    "id": "shirt-flannel-blue",
+    "category": "上衣",
+    "name": "海洋藍法蘭絨襯衫",
+    "brand": "About Companions",
+    "model": "Simon",
+    "color": "海洋藍（素面）",
+    "size": "S",
+    "price": 2790,
+    "bought": "2026-10",
+    "use": "約會",
+    "note": "有機棉雙股紗法蘭絨，窄領、直筒身、圓弧下襬。扣起來當約會襯衫、敞開套 T 當外層、塞進針織裡面都行——衣櫃裡唯一一件素面深色長袖襯衫。配黑褲、深灰褲、卡其都可以；不配丹寧（同屬藍調會糊成一片）。【到貨要測】扣好扣子、雙手往前交叉抱胸（抱石伸手的動作），背部肩胛之間會繃就是胸圍太窄，那就只當敞開的外層用。",
+    "photo": "photos/items-gen/shirt-flannel-blue.jpg",
+    "shape": "shirt",
+    "colors": {
+      "main": "#3f5a72",
+      "button": "#34495e"
+    }
+  },
+  {
     "id": "knit-grey",
     "category": "上衣",
     "name": "淺灰圓領針織衫",
@@ -261,6 +280,24 @@
     "shape": "tshirt",
     "colors": {
       "main": "#2b3350"
+    }
+  },
+  {
+    "id": "shell-oqliq",
+    "category": "外套",
+    "name": "炭灰防水連帽外套",
+    "brand": "oqLiq",
+    "model": "Cicada Wings Windbreaker",
+    "color": "炭灰（近黑）",
+    "size": "S",
+    "price": 4548,
+    "bought": "2026-11",
+    "use": "日常",
+    "note": "10K/10K 真防水、日本 SOLOTEX 布、可直接機洗、全身無 logo。這件是「下雨天也能好看」的那件，取代長毛象上街——長毛象留給山上。【已試穿確認】肩線、衣長、帽領都對。袖口按扣要扣到最緊那格，下襬抽繩不要收（收了會變燈籠）。配深色窄褲；不要配軍綠工裝褲。",
+    "photo": "photos/items-gen/shell-oqliq.jpg",
+    "shape": "tshirt",
+    "colors": {
+      "main": "#3a3c40"
     }
   },
   {
