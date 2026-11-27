@@ -36,7 +36,7 @@ prompt 要短，太長會把 agy 推進子 agent 迴圈然後逾時沒產圖。
 3. 三套內容（以下是 2026-11-27 定好的，直接照抄）：
 
 - **雪地 1・移動日**：美麗諾長袖 ＋ knit-grey ＋ Mammut 硬殼／底層褲 ＋ p-grey 深灰彈性長褲／
-  Darn Tough 中筒厚襪 ＋ Columbia 雪靴。重點是好穿脫，機場、新幹線、旅館一直在脫外套脫鞋。
+  Darn Tough 中筒厚襪 ＋ Columbia BUGABOOT CANYON。重點是好穿脫，機場、新幹線、旅館一直在脫外套脫鞋。
 - **雪地 2・村裡吃飯逛街**：美麗諾長袖 ＋ shirt-flannel-blue 法蘭絨敞開 ＋ Mammut／
   底層褲 ＋ p-black／雪靴。帽子脖圍手套全上。
 - **雪地 3・溫泉街拍照**：美麗諾長袖 ＋ Batoner 針織（12 月買）＋ oqLiq 炭灰（版型比 Mammut 乾淨、
